@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: #000;
+    overflow: hidden;
+    color: #fff;
+    height: 100vh;
+    width: 100%;
+}
+
+body::before{
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url("assets/couple-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: brightness(.28);
+    z-index: -5;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#rain, #hearts, #roses, #lightning{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#rain { z-index: -2; }
+#hearts { z-index: 2; overflow: hidden; }
+#roses { z-index: 3; }
+#lightning { background: #fff; opacity: 0; z-index: 50; }
+
+#loading, #gift, #main, #letter, #proposal, #ending{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+    padding: 20px;
+}
+
+.loading-text{
+    font-size: 38px;
+    font-family: 'Great Vibes', cursive;
+    color: #ff5fa2;
+    text-shadow: 0 0 10px #ff4d94, 0 0 30px #ff0066;
+}
+
+.loading-sub{
+    margin-top: 15px;
+    font-size: 18px;
+    opacity: .8;
+}
+
+.loader{
+    margin-top: 40px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 6px solid rgba(255,255,255,.2);
+    border-top: 6px solid hotpink;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.gift-box{
+    width: 220px;
+    animation: gift 2s infinite alternate;
+}
+
+@keyframes gift {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+#gift h2{
+    margin-top: 30px;
+    font-size: 34px;
+    color: #ffd6e7;
+}
+
+button{
+    margin-top: 30px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    background: #ff2f78;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(255,47,120,0.5);
+    transition: 0.3s;
+}
+
+button:hover{
+    transform: scale(1.05);
+    background: #ff0055;
+}
+
+.rain-drop{
+    position: absolute;
+    width: 2px;
+    height: 90px;
+    background: linear-gradient(transparent, rgba(255,255,255,.8));
+    animation: rainFall linear infinite;
+    opacity: .7;
+}
+
+@keyframes rainFall{
+    0%{ transform: translateY(-120px); opacity: 0; }
+    15%{ opacity: 1; }
+    100%{ transform: translateY(110vh); opacity: 0; }
+}
+
+.heart{
+    position: absolute;
+    color: #ff2d75;
+    font-size: 25px;
+    animation: heartFloat linear infinite;
+    text-shadow: 0 0 15px hotpink;
+}
+
+@keyframes heartFloat{
+    0%{ transform: translateY(100vh) scale(.5); opacity: 0; }
+    20%{ opacity: 1; }
+    100%{ transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
